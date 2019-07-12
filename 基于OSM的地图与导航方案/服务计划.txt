@@ -1,0 +1,10 @@
+MVT格式 - 可解析MB数据
+整理db scheme，怎么读取，MVT原始数据生成
+生成可用的MVT
+mapnik --> style.xml 搞懂mapnik怎么获取数据
+
+https://github.com/go-spatial/tegola
+
+docker化
+
+修改数据源和前端样式，显示建筑物名称。。。。

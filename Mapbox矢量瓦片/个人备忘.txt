@@ -1,0 +1,18 @@
+启动docker数据库
+cd /root/mapbox/openmaptiles
+docker-compose up -d postgres
+
+https://donkey-deploy:donkey123456@gitlab.thinker.vc/donkey/donkey.git
+
+https://donkey-deploy:donkey123456@gitlab.thinker.vc/donkey/donkey-api
+
+https://donkey-deploy:donkey123456@gitlab.thinker.vc/donkey/donkey_weixin.git
+
+https://donkey-deploy:donkey123456@gitlab.thinker.vc/donkey/docker-compose-deploy.git
+
+https://donkey-deploy:donkey123456@gitlab.thinker.vc/donkey/RadishSaas-Android-Maintance.git
+
+grep nginx /var/log/audit/audit.log | audit2allow -m nginx > nginx.te
+checkmodule -M -m -o nginx.mod nginx.te
+semodule_package -m nginx.mod -o nginx.pp 
+semodule -i nginx.pp

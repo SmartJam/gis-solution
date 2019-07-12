@@ -1,0 +1,17 @@
+@startuml
+Client -> httpd : 请求瓦片
+httpd -> mod_tile : 响应瓦片请求
+alt 瓦片已渲染，直接返回
+mod_tile <- 瓦片缓存 : 获取已生成的瓦片
+mod_tile --> httpd : 返回瓦片
+else 渲染瓦片
+mod_tile -> renderd : 请求渲染瓦片
+renderd -> Mapnik : 渲染瓦片
+Mapnik <- "瓦片数据DB/shp文件" : 地图矢量数据
+Mapnik --> renderd : 生成的瓦片
+renderd --> mod_tile : 生成的瓦片
+mod_tile -> 瓦片缓存 : 缓存瓦片
+mod_tile --> httpd : 返回瓦片
+end
+httpd --> Client : 返回瓦片
+@enduml
